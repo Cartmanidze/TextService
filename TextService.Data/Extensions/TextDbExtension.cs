@@ -13,7 +13,7 @@ namespace TextService.Data.Extensions
             services.AddDbContext<TextContext>(opt =>
             {
                 var connectionString = configuration.GetConnectionString("AppConnectionString");
-                opt.UseSqlServer(connectionString, o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
+                opt.UseNpgsql(connectionString, o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
                 opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
             services.AddScoped<ITextRepository, TextRepository>();
