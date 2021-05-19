@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Grpc.Core;
 using GrpcText;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using TextService.Data.Repositories;
 using Text = TextService.Data.Models.Text;
@@ -10,6 +11,7 @@ using TextGrpc = GrpcText.Text;
 
 namespace TextService.Services
 {
+    [Authorize]
     public class TextService : TextGrpc.TextBase
     {
         private readonly ITextRepository _textRepository;
