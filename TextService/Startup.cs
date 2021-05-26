@@ -24,6 +24,7 @@ namespace TextService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTextDataBase(Configuration);
+            services.AddAuthorization();
 
             services.AddGrpc(options =>
             {
